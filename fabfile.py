@@ -17,6 +17,8 @@ def test():
     with lcd('puppet/modules'):
         with lcd('nginx'):
             local('rspec')
+        with lcd('apache2'):
+            local('rspec')
 
 
 def push():
@@ -30,7 +32,7 @@ def deploy():
     test()
 
     run('rm -rf puppet-untitled-2016')
-    run('git clone https://github.com/zkan/puppet-untitled-2016.git')
+    run('git clone https://github.com/lukyth/puppet-untitled-2016.git')
 
     run('sudo rm -rf /etc/puppet/manifests')
     run('sudo ln -sf /home/vagrant/puppet-untitled-2016/puppet/manifests /etc/puppet/manifests')
